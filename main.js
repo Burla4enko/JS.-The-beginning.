@@ -1,4 +1,5 @@
-var
+// Lesson 15, homework
+/*var
 a = 'Some text is here',
 b = 10,
 c = false,
@@ -33,3 +34,63 @@ console.log(a.indexOf('yes')); //-1, т.к. ничего подобного не
 console.log(a.replace('text','word')); //переименование/замена подстроки
 console.log(a.toUpperCase());
 console.log(a.toLowerCase());
+*/
+
+// Lesson 16, homework
+//пункт 1
+var 
+someString = 'Some text is here',
+emtyString = '',
+newString1 = emtyString || 'Default text';
+console.log(someString);
+console.log(newString1);
+
+//пункт 2
+var 
+browser = {
+	title: 'Google Chrome',
+	version: 71.0,
+	capacity: '32 bit',
+	license: function () { //пункт 3
+		return 'Official';
+	}
+};
+console.log(browser);
+console.log(browser.license());
+
+//пункт 4
+for (var i = 1; i <= 20; i++) {
+	if (i % 2 === 0) {
+		console.log(i);
+	}
+}
+
+//пункт 5
+var stSurname = 'Burlachenko', stName;
+switch(stSurname) {
+	case 'Panchenko': stName = 'Igor'; break;
+	case 'Burlachenko': stName = 'Andrew'; break;
+	case 'Serpuhova': stName = 'Svetlana'; break;
+	default: stName = 'has no name';
+}
+console.log(stSurname + ' ' + stName);
+
+//пункт 6
+var x = 8;
+var a = x > 8 ? 'x больше 8': x < 8 ? 'х меньше 8' : 'х равен 8';
+console.log(a);
+
+//пункт 7
+var b = 4;
+while (b < 8) console.log(b++);
+
+//пункт 8
+function myValue (arg1, arg2, callback) {
+	console.log('Число ' + arg1 + ' в степени ' + arg2);
+	arg3 = Math.pow(arg1, arg2);
+	callback();
+}
+myValue(2, 4, function() {
+	console.log('Результат ' + arg3);
+});
+
