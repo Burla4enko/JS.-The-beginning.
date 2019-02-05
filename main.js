@@ -37,6 +37,7 @@ console.log(a.toLowerCase());
 */
 
 // Lesson 16, homework
+/*
 //пункт 1
 var 
 someString = 'Some text is here',
@@ -93,4 +94,57 @@ function myValue (arg1, arg2, callback) {
 myValue(2, 4, function() {
 	console.log('Результат ' + arg3);
 });
+*/ 
 
+// Lesson 17, homework
+
+//пункт 1
+var counter = function () {
+	var count = 0;
+	return function (num) {
+		count = num !== undefined ? num : count;
+		return count++;
+	}
+}();
+console.log(counter());
+console.log(counter());
+console.log(counter(8));
+console.log(counter());
+
+//пункт 2
+var intro = function () {
+	return 'I am ' + this.name + ' and I program in ' + this.lang;
+};
+
+var firstStudent = {
+	name: 'Oleg',
+	gender: 'male',
+	lang: 'Java',
+	_lvl: 'junor',
+	intro: intro,
+	get lvl() {                   //пункт 3
+		return this._lvl;
+	},
+	set lvl(value) {
+		this._lvl = value;
+	}
+};
+
+var secondStudent = {
+	name: 'Eugen',
+	gender: 'male',
+	lang: 'Pyton',
+	_lvl: 'medium',
+	intro: intro,
+	get lvl() {
+		return this._lvl;
+	},
+	set lvl(value) {
+		this._lvl = value;
+	}
+};
+
+console.log(firstStudent.intro());
+console.log(firstStudent._lvl);
+console.log(secondStudent.intro());
+console.log(secondStudent._lvl);
