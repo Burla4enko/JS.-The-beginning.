@@ -97,7 +97,7 @@ myValue(2, 4, function() {
 */ 
 
 // Lesson 17, homework
-
+/*
 //пункт 1
 var counter = function () {
 	var count = 0;
@@ -148,3 +148,70 @@ console.log(firstStudent.intro());
 console.log(firstStudent._lvl);
 console.log(secondStudent.intro());
 console.log(secondStudent._lvl);
+*/
+
+//Lesson 18, homework
+
+//пункт 1. Используя метод filter отфильтровать строки, содержащие букву "o".
+var words = ['Lore','ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipisicing', 'elit', 'Similique', 'cumque'];
+
+function findRightWord() {
+	return words.filter(function(el) {
+		return el.toLowerCase().indexOf('o') > -1;
+	})
+}
+
+alert(findRightWord());
+
+//пункт 2.а. Отобразите текущую дату и время в следующих форматах: yyyy-mm-dd, hh:mm (можно без учета часового пояса)
+var	ourDate = new Date();
+var	curr_date = ourDate.getDate() < 10 ? '0' + ourDate.getDate() : ourDate.getDate();
+var	curr_month = (ourDate.getMonth() + 1) < 10 ? '0' + (ourDate.getMonth() + 1) : ourDate.getMonth() + 1;
+var	curr_year = ourDate.getFullYear();
+var	curr_hour = ourDate.getHours() < 10 ? '0' + ourDate.getHours() : ourDate.getHours();
+var	curr_minute = ourDate.getMinutes() < 10 ? '0' + ourDate.getMinutes() : ourDate.getMinutes();
+
+alert( curr_year + '-' + curr_month + '-' + curr_date + ', ' + curr_hour + ':' + curr_minute );
+
+//пункт 2.б. Отобразите текущую дату и время в следующих форматах: dd.mm.yyyy, hh:mm:ss (локальное время и формат)
+var	ourDate = new Date();
+var	curr_date = ourDate.getDate() < 10 ? '0' + ourDate.getDate() : ourDate.getDate();
+var	curr_month = (ourDate.getMonth() + 1) < 10 ? '0' + (ourDate.getMonth() + 1) : ourDate.getMonth() + 1;
+var	curr_year = ourDate.getFullYear();
+var	curr_hour = ourDate.getHours() < 10 ? '0' + ourDate.getHours() : ourDate.getHours();
+var	curr_minute = ourDate.getMinutes() < 10 ? '0' + ourDate.getMinutes() : ourDate.getMinutes();
+var	curr_second = ourDate.getSeconds() < 10 ? '0' + ourDate.getSeconds() : ourDate.getSeconds();
+
+alert( curr_date + '.' + curr_month + '.' + curr_year + ', ' + curr_hour + ':' + curr_minute + ':' + curr_second );
+
+//пункт 3. Создайте функцию getWeekDay(date), которая выводит текущий день недели в коротком формате "понедельник", "вторник", … "воскресенье".
+function getWeekDay (date) {
+	let weekDays = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+	return weekDays[date.getDay()];
+}
+
+var date = new Date('2019-01-26');
+alert( getWeekDay(date) );
+
+
+//пункт 4. Напишите функцию, getLocalDay(date) которая возвращает день недели для даты date. День нужно возвратить в европейской нумерации, т.е. понедельник имеет номер 1, вторник номер 2, …, воскресенье – номер 7.
+function getLocaleDay(date) {
+	let numOfDate = date.getDay();
+	if (numOfDate == 0) { 
+		numOfDate = 7;
+	}
+	return numOfDate;
+}
+var date = new Date('2019-01-27');
+alert( getLocaleDay(date) ); 
+
+//пункт 5. Создайте функцию getDateAgo(date, days), которая возвращает дату, которое была days дней назад от указанной даты date.
+function getDateAgo(date, days) {
+	let ourDate = new Date(date); 
+	ourDate.setDate(date.getDate() - days);
+  return ourDate.getDate();
+}
+var date = new Date('2019-01-01');
+alert(getDateAgo(date, 1)); 
+alert(getDateAgo(date, 2)); 
+alert(getDateAgo(date, 365));
